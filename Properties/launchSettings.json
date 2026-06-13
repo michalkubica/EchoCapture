@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EchoCapture (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "EchoCapture (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
