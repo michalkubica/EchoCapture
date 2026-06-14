@@ -4,11 +4,10 @@
 Click once to start recording. Click again to save the recording.  
 No configuration needed.
 
----
-
 ## 🚧 To be added in future iterations
 
-- Hover effects for minimize and maximize buttons  
+- Hover effects for minimize and maximize buttons
+- Mica material
 - App icon  
 - App icon and name in the title bar  
-- Recording‑in‑progress animation  
+- Recording‑in‑progress animation (optional now that timer is introduced)
