@@ -13,6 +13,9 @@ namespace EchoCapture
         private WasapiLoopbackCapture? _capture;
         private WaveFileWriter? _writer;
         private bool _isRecording = false;
+        private DispatcherTimer _timer;
+        private int _secondsElapsed;
+
 
         public MainWindow()
         {
@@ -28,23 +31,47 @@ namespace EchoCapture
             titleBar.ButtonInactiveForegroundColor = Colors.Gray;
             this.SetTitleBar(TitleBar);
             this.SystemBackdrop = new MicaBackdrop();
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object? sender, object e)
+        {
+            _secondsElapsed++;
+
+            int minutes = _secondsElapsed / 60;
+            int seconds = _secondsElapsed % 60;
+
+            RecordingTimer.Text = $"{minutes:00}:{seconds:00}";
         }
 
         private async void RecordButton_Click(object sender, RoutedEventArgs e)
         {
             if (!_isRecording)
             {
+                _isRecording = true;
+
                 StartRecording();
                 RecordIcon.Glyph = "\uEE95";
                 RecordIcon.Foreground = new SolidColorBrush(Colors.Red);
-                _isRecording = true;
+
+                _secondsElapsed = 0;
+                RecordingTimer.Text = "00:00";
+                RecordingTimer.Visibility = Visibility.Visible;
+                _timer.Start();
             }
             else
             {
+                _isRecording = false;
+
                 await StopAndSaveRecording();
                 RecordIcon.Glyph = "\uE720";
                 RecordIcon.Foreground = new SolidColorBrush(Colors.White);
-                _isRecording = false;
+
+                _timer.Stop();
+                RecordingTimer.Visibility = Visibility.Collapsed;
             }
         }
 

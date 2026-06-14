@@ -35,11 +35,18 @@
                     <FontIcon.RenderTransform>
                         <ScaleTransform ScaleX="1" ScaleY="1"/>
                     </FontIcon.RenderTransform>
-
                 </FontIcon>
             </Button.Content>
-
         </Button>
+
+        <TextBlock x:Name="RecordingTimer"
+               Text="00:00"
+               Foreground="White"
+               FontSize="20"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Margin="0,160,0,0"
+               Visibility="Collapsed"/>
 
     </Grid>
 
