@@ -1,6 +1,6 @@
-﻿# What EchoCapture solves
+﻿# What problem EchoCapture solves
 
-Windows does not have a built‑in way to record your computer's output audio. Normally you would use the Recorder app but it requires exabling Stereo Mix, which is not available on all computers. 
+Windows does not have a built‑in way to record your computer's output audio. Normally you would use the Recorder app but it requires enabling Stereo Mix, which is not available on all computers. 
 Other options include using third‑party software like Audacity but that sounds like a severe overkill for such simple use case.
 
 **EchoCapture** solves this problem by allowing you to record your computer's output audio without any configuration and just one button click.  
